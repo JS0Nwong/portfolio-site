@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { Facebook, Github, Twitter, YouTube } from "../svgs";
 import {DarkTheme} from '../themes'
+import { motion } from "framer-motion";
 
 const Icons = styled.div`
     display: flex;
@@ -23,7 +24,7 @@ const Icons = styled.div`
 
 `
 
-const Line = styled.span`
+const Line = styled(motion.span)`
     width: 2px;
     height: 11rem;
 
@@ -33,30 +34,50 @@ const Line = styled.span`
 const Socials = (props) => {
     return (
         <Icons>
-            <div>
+            <motion.div
+                initial = {{transform: "scale(0)"}}
+                animate = {{scale: [0, 1, 1.1, 1]}}
+                transition = {{type: 'spring', duration: 1, delay: 1}}
+            >
                 <NavLink style = {{color: 'inherit'}} target = '_blank' to = {{pathname: 'https://github.com/JS0Nwong'}}>
                     <Github width = {25} height = {25} fill = {props.theme === 'dark' ? DarkTheme.text : DarkTheme.body}></Github>
                 </NavLink>
-            </div>
+            </motion.div>
 
-            <div>
+            <motion.div
+                initial = {{transform: "scale(0)"}}
+                animate = {{scale: [0, 1, 1.1, 1]}}
+                transition = {{type: 'spring', duration: 1, delay: 1.1}}
+            >
                 <NavLink style = {{color: 'inherit'}} target = '_blank' to = {{pathname: 'https://github.com/JS0Nwong'}}>
                     <Twitter width = {25} height = {25} fill = {props.theme === 'dark' ? DarkTheme.text : DarkTheme.body}></Twitter>
                 </NavLink>
-            </div>
+            </motion.div>
 
-            <div>
+            <motion.div
+                initial = {{transform: "scale(0)"}}
+                animate = {{scale: [0, 1, 1.1, 1]}}
+                transition = {{type: 'spring', duration: 1, delay: 1.2}}
+            >
                 <NavLink style = {{color: 'inherit'}} target = '_blank' to = {{pathname: 'https://github.com/JS0Nwong'}}>
                     <Facebook width = {25} height = {25} fill = {props.theme === 'dark' ? DarkTheme.text : DarkTheme.body}></Facebook>
                 </NavLink>
-            </div>
+            </motion.div>
 
-            <div>
+            <motion.div
+                initial = {{transform: "scale(0)"}}
+                animate = {{scale: [0, 1, 1.1, 1]}}
+                transition = {{type: 'spring', duration: 1, delay: 1.3}}
+            >
                 <NavLink style = {{color: 'inherit'}} target = '_blank' to = {{pathname: 'https://github.com/JS0Nwong'}}>
                     <YouTube width = {25} height = {25} fill = {props.theme === 'dark' ? DarkTheme.text : DarkTheme.body}></YouTube>
                 </NavLink>
-            </div>
-            <Line color = {props.theme}/>
+            </motion.div>
+            <Line color = {props.theme}
+                initial = {{height: 0}}
+                animate = {{height: '11rem'}}
+                transition = {{type: 'spring', duration: 1}}
+            />
         </Icons>
     )
 }

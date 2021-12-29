@@ -5,6 +5,7 @@ import PowerButton from "./subComponents/button";
 import LogoComponent from "./subComponents/logo";
 import Socials from "./subComponents/socials";
 import { YinYang } from "./svgs";
+import Intro from './intro';
 
 const MainContainer = styled.div`
     background: ${props => props.theme.body};
@@ -29,7 +30,7 @@ const Contact = styled(NavLink)`
     top: 2rem;
     right: calc(1rem  + 2vw);
     text-decoration: none;
-    z-index: 3;
+    z-index: 1;
 `
 
 const Blog = styled(NavLink)`
@@ -39,7 +40,7 @@ const Blog = styled(NavLink)`
     transform: translate(-50%, -50%) rotate(90deg);
     right: calc(1rem  + 2vw);
     text-decoration: none;
-    z-index: 3;
+    z-index: 1;
 `
 
 const Works = styled(NavLink)`
@@ -49,7 +50,7 @@ const Works = styled(NavLink)`
     transform: translate(-50%, -50%) rotate(-90deg);
     left: calc(1rem  + 2vw);
     text-decoration: none;
-    z-index: 3;
+    z-index: 1;
 `
 const BottomBar = styled.div`
     position: absolute;
@@ -105,15 +106,15 @@ const Center = styled.button`
 `
 
 const DarkDiv = styled.div`
-position: absolute;
-top: 0;
-background-color: #000;
-bottom: 0;
-right: 50%;
-width: ${props => props.click ? '50%' : '0%'};
-height: ${props => props.click ? '100%' : '0%'};
-z-index:1;
-transition: height 0.5s ease, width 1s ease 0.5s;
+    position: absolute;
+    top: 0;
+    background-color: #000;
+    bottom: 0;
+    right: 50%;
+    width: ${props => props.click ? '50%' : '0%'};
+    height: ${props => props.click ? '100%' : '0%'};
+    z-index: 1;
+    transition: height 0.5s ease, width 1s ease 0.5s;
 `
 
 const Main = () => {
@@ -156,6 +157,9 @@ const Main = () => {
                 </BottomBar>
 
             </Container>
+
+            {click ? <Intro click = {click}/> : null} 
+
         </MainContainer>
     )
 }
