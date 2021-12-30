@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import { NavLink } from "react-router-dom";
 import styled, {keyframes} from "styled-components";
 import PowerButton from "./subComponents/button";
@@ -6,6 +6,8 @@ import LogoComponent from "./subComponents/logo";
 import Socials from "./subComponents/socials";
 import { YinYang } from "./svgs";
 import Intro from './intro';
+
+import {motion} from 'framer-motion';
 
 const MainContainer = styled.div`
     background: ${props => props.theme.body};
@@ -103,6 +105,12 @@ const Center = styled.button`
     &>:first-child {
         animation: ${rotate} 2s linear infinite;
     }
+    &>:last-child {
+        display: ${props => props.click ? 'none' : 'inline-block'};
+        padding: 0.8rem;
+        font-size: 2rem;
+        font-weight: 800;
+    }
 `
 
 const DarkDiv = styled.div`
@@ -123,6 +131,31 @@ const Main = () => {
 
     const handleClick = () => setClick(!click);
 
+    // useEffect(() => {
+
+    //         let links = document.querySelectorAll('a');
+    //         // if(links.hasChildNodes())
+    //         // {
+    //              const animate = function(e) {
+    //                 const header = this.querySelector('h1');
+    //                 const { offsetX: x , offsetY: y } = e,
+    //                 { offsetWidth: width, offsetHeight: height } = this,
+
+    //                 move = 15,
+    //                 xMove = x / width * (move * 2 ) - move,
+    //                 yMove = y / height * (move * 2 ) - move;
+
+    //                 header.style.transform = `translate(${xMove}px, ${yMove}px)`;
+
+    //                 if(e.type === 'mouseleave') {
+    //                     header.style.transform = '';
+    //                 }
+    //             }
+    //             links.forEach(link => link.addEventListener('mousemove', animate));
+    //             links.forEach(link => link.addEventListener('mouseleave', animate));
+    //         //}
+    // })
+
     return (
         <MainContainer>
             <DarkDiv click = {click}/>
@@ -133,26 +166,52 @@ const Main = () => {
 
                 <Center click = {click}>
                     <YinYang onClick = {() => handleClick()} width = {click ? 120 : 200} height = {click ? 120 : 200} fill = 'currentColor'/>
+                    <span>Enter</span>
                 </Center>
 
                 <Contact target = "_blank" to = {{pathname: 'mailto:jason.wong47@myhunter.cuny.edu'}}>
-                    <h1>Say Hello!</h1>
+                    <motion.h1
+                        initial = {{y: -200, transition: {type: 'spring', duration: 0.5, delay: 1}}}
+                        animate  = {{y: 0, transition: {type: 'spring', duration: 0.5, delay: 1}}}
+                        whileHover={{scale: 1.1,}}
+                        whileTap={{scale: 0.9}}
+                    >Say Hello!</motion.h1>
                 </Contact>
 
                 <Blog to = "/blog">
-                    <h1>Blog.</h1>
+                    <motion.h1
+                        initial = {{y: -200, transition: {type: 'spring', duration: 0.5, delay: 1}}}
+                        animate  = {{y: 0, transition: {type: 'spring', duration: 0.5, delay: 1}}}
+                        whileHover={{scale: 1.1,}}
+                        whileTap={{scale: 0.9}}
+                    >Blog.</motion.h1>
                 </Blog>
 
                 <Works to = "/works" click = {+click}>
-                    <h1>Works.</h1>
+                    <motion.h1
+                        initial = {{y: -200, transition: {type: 'spring', duration: 0.5, delay: 1}}}
+                        animate  = {{y: 0, transition: {type: 'spring', duration: 0.5, delay: 1}}}
+                        whileHover={{scale: 1.1,}}
+                        whileTap={{scale: 0.9}}                        
+                    >Works.</motion.h1>
                 </Works>
 
                 <BottomBar>
                     <About to = "/about" click = {+click}>
-                        <h1>About.</h1>
+                        <motion.h1
+                            initial = {{y: 200, transition: {type: 'spring', duration: 0.5, delay: 1}}}
+                            animate  = {{y: 0, transition: {type: 'spring', duration: 0.5, delay: 1}}}
+                            whileHover={{scale: 1.1,}}
+                            whileTap={{scale: 0.9}}
+                        >About.</motion.h1>
                     </About>
                     <Skills to = "/skills">
-                        <h1>Skills.</h1>
+                        <motion.h1
+                            initial = {{y: 200, transition: {type: 'spring', duration: 0.5, delay: 1}}}
+                            animate  = {{y: 0, transition: {type: 'spring', duration: 0.5, delay: 1}}}
+                            whileHover={{scale: 1.1,}}
+                            whileTap={{scale: 0.9}}                        
+                        >Skills.</motion.h1>
                     </Skills>
                 </BottomBar>
 

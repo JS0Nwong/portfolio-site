@@ -1,8 +1,8 @@
 export const Work = [
     {
         id:1,
-        name:"Agency Landing Page",
-        description:"It is build on top of the React JS, with styledComponents and GSAP for smooth scrolling animations.",
+        name:"Pokey.dex",
+        description:"A Pokedex built using vanilla JavaScript, HTML and CSS with search and filtering functionality. ",
         tags:["react","gsap","styledComponents"],
         
         demo:"https://agency-website-eta.vercel.app/",
@@ -10,8 +10,8 @@ export const Work = [
     },
     {
         id:2,
-        name:"Job listing website",
-        description:"A Job listing website build in ReactJS. With searching and filtering functionalities.",
+        name:"Portfolio Site",
+        description:"My personal portfolio site built using React, Styled Components, and Framer Motion.",
         tags:["react","sass"],
         
         demo:"http://react-job-listing-website.codebucks27.vercel.app/",
