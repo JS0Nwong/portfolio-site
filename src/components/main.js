@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import { NavLink } from "react-router-dom";
 import styled, {keyframes} from "styled-components";
-import PowerButton from "./subComponents/button";
+//import PowerButton from "./subComponents/button";
 import LogoComponent from "./subComponents/logo";
 import Socials from "./subComponents/socials";
 import { YinYang } from "./svgs";
@@ -160,7 +160,7 @@ const Main = () => {
         <MainContainer>
             <DarkDiv click = {click}/>
             <Container>
-                <PowerButton/>
+                {/* <PowerButton/> */}
                 <LogoComponent theme = {click ? 'dark' : 'light'}/>
                 <Socials theme = {click ? 'dark' : 'light'}/>
 

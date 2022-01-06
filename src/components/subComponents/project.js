@@ -1,13 +1,28 @@
 import React from "react";
 import styled from "styled-components";
+import {NavLink} from "react-router-dom";
+import { Github } from "../svgs";
 
 const Box = styled.div`
-    width: 100%;
+    width: 16rem;
+    height: 60vh;
+    background-color: ${props => props.theme.text};
+    color: ${props => props.theme.body};
     padding: 1.5rem 2rem;
+    margin-right: 8rem;
+    border-radius: 0 50px 0 50px;
     display: flex;
     flex-direction: column;
-    border-bottom: 2px solid ${props => props.theme.text};
     justify-content: space-between;
+    border: 3px solid ${props => props.theme.text};
+
+    transition: all 0.2s ease;
+
+    &:hover {
+        background-color: ${props => props.theme.body};
+        color: ${props => props.theme.text};
+        border: 3px solid ${props => props.theme.text};
+    }
 `
 
 const Title = styled.h1`
@@ -15,17 +30,52 @@ const Title = styled.h1`
 `
 
 const Description = styled.p`
-    font-size: calc(0.6rem + 1vw);
+    font-size: calc(0.6rem + 0.3vw);
+    font-family: 'Karla', sans-serif;
+    font-weight: 500;
 `
 const Tags = styled.div`
+    border-top: 2px solid ${props => props.theme.body};
+    padding-top: .5rem;
+    display: flex;
+    flex-wrap: wrap;
 
+    ${Box}:hover & {
+        border-top: 2px solid ${props => props.theme.text};
+    }
 `
 
-const Links = styled.li`
+const Tag = styled.span`
+    margin-right: 1rem;
+    font-size: calc(0.8rem + 0.3vw);
+`
+
+const Footer = styled.footer`
     display: flex;
-    flex-direction: column;
-    list-style: none;
+    justify-content: space-between;
+`
+const Link = styled(NavLink)`
+    background-color: ${props => props.theme.body};
+    color: ${props => props.theme.text};
     text-decoration: none;
+    padding: .5rem calc(2rem + 2vw);
+    border-radius: 0 0 0 50px;
+    font-size: calc(0.8rem + 0.3vw);
+
+    ${Box}:hover & {
+        background-color: ${props => props.theme.text};
+        color: ${props => props.theme.body};
+    }
+`
+
+const Git = styled(NavLink)`
+    color: inherit;
+    text-decoration: none;
+    ${Box}:hover & {
+        &>*{
+            fill: ${props => props.theme.text};
+        }
+    }
 `
 
 const Project = (props) => {
@@ -38,15 +88,18 @@ const Project = (props) => {
             <Description>
                 {description}
             </Description>
-            {/* <Tags>
-                {tags}
+            <Tags>
+                {tags.map((t, id) => {
+                    return <Tag key = {id}>#{t}</Tag>
+                    })
+                }
             </Tags>
-            <Links>
-                {demo}
-                {github}
-            </Links> */}
-            
-            
+            <Footer>
+                <Link to = {{pathname: `${demo}`}} target = "_blank">Vist</Link>
+                <Git to = {{pathname: `${github}`}} target = "_blank">
+                    <Github width ={30} height={30}/>
+                </Git>
+            </Footer>
         </Box>
     )
 }

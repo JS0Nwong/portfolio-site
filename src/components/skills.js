@@ -64,7 +64,7 @@ const skills = () => {
     return (
         <ThemeProvider theme={lightTheme}>
             <Box>
-                <PowerButton theme = 'light'/>
+                {/* <PowerButton theme = 'light'/> */}
                 <LogoComponent theme = 'light'/>
                 <Socials /> 
                 <Particles theme ='light' />

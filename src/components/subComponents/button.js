@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { PowerBtn } from "../svgs";
 import {NavLink} from "react-router-dom";
+import {motion} from 'framer-motion';
 
 const Power = styled.button`
     position: fixed;
@@ -33,7 +33,12 @@ const PowerButton = () => {
         <Power>
             <NavLink to="/">
                 {/* <PowerBtn width = {30} height = {30} fill = 'currentColor'/> */}
-                <h1>Dark Mode</h1>
+                <motion.h1 fill = 'currentColor'
+                    initial = {{y: -200, transition: {type: 'spring', duration: 0.5, delay: 1}}}
+                    animate  = {{y: 0, transition: {type: 'spring', duration: 0.5, delay: 1}}}
+                    whileHover={{scale: 1.1,}}
+                    whileTap={{scale: 0.9}}
+                >Dark Mode</motion.h1>
             </NavLink>
         </Power>
     )

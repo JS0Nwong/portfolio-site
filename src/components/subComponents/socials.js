@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-import { Facebook, Github, Twitter, YouTube } from "../svgs";
+import { Facebook, Github, YouTube, Twitter} from "../svgs";
 import {DarkTheme} from '../themes'
 import { motion } from "framer-motion";
 

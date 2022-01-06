@@ -96,7 +96,7 @@ const about = () => {
             <Box>
                 <LogoComponent theme = "light"/>
                 <Socials theme = "light"/>
-                <PowerButton />
+                {/* <PowerButton /> */}
                 <Particles theme = "light"/>
                 <Spaceman>
                     <img src = {Astronaut} alt = "spaceman" />
